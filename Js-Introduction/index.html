@@ -1,0 +1,60 @@
+<!--
+    
+    if you want to use Java Scrpt with your HTML 
+    The you need to use the Script tag ? 
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div>
+         Name  <input type="text" id="name">
+         <div id="nameErr"></div>
+         <br/>
+         Age <input type="number" id="age">
+        <br/>
+        Email <input type="email" id="email">
+        <br/>
+        Contact<input type="number" id="contact">
+        <br/>
+        <input type="button" id="submit" value="Save">
+        
+    </div>
+<!--             We need to extract data from the DOM for that we will user 
+            DOM object 
+ -->
+    <script>
+       var button = document.getElementById('submit');
+
+       button.onclick= function()
+       {
+       var name= document.getElementById('name').value;
+       var age = document.getElementById('age').value;
+       var email = document.getElementById('email').value;
+       var contact = document.getElementById('contact').value;
+
+       if(name === ""){
+            document.getElementById('nameErr').innerHTML='The name legth should not be blank char logn !'
+       }
+       else {
+            document.getElementById('nameErr').innerHTML=''
+       }
+
+       var data= {
+        name:name,
+        age:age,
+        email:email,
+        contact:contact
+       }
+       console.log(data)
+       }
+    </script>
+</body>
+</html>
