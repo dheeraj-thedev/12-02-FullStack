@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        Person Details 
+
+      Name :   <input type="text" name="name" id="name">
+      <br>
+       Age : <input type="number" name="age" id="age"> <br>
+       Contact : <input type="text" name="contact" id="contact"> <br>
+       Marks : <input type="number" name="marks" id="marks"> <br>
+        <button id="submitBtn"> Save Data </button>
+    </div>
+
+
+        <table style="border: 2px solid green;" id="table">
+            <tbody id="tableBody">
+                
+            </tbody>
+        </table>
+
+</body>
+<script>
+
+var persons= [
+      {name:"Person1",age:30,contact:"23456789",marks:100},
+      {name:"Person2",age:32,contact:"23654329",marks:98},
+      {name:"Person3",age:33,contact:"876549",marks:99},
+  ]
+var submit = document.getElementById("submitBtn");
+
+submit.onclick= function (){
+    let _name = document.getElementById("name");
+    let _age=document.getElementById("age");
+    let _contact=document.getElementById("contact");
+    let _marks=document.getElementById("marks");
+
+    persons.push({name:_name.value,age:_age.value,contact:_contact.value,marks:_marks.value})
+    var tBody=document.getElementById("tableBody")
+
+    tBody.innerHTML='';
+     persons.forEach(function(val,i){
+            tBody.innerHTML+="<tr> <td> " + persons[i].name + "</td> <td> " + persons[i].age + "</td><td> " + persons[i].contact + "</td><td> " + persons[i].marks + "</td></tr>";
+        })
+   // document.createElement()
+
+    //  tBody.append(  "<tr> <td> " + _name.value + "</td> <td> " + _age.value + "</td><td> " + _contact.value + "</td><td> " + _marks.value + "</td></tr>");
+
+
+console.log(persons)
+}
+
+   var tBody=document.getElementById("tableBody")
+    
+        persons.forEach(function(val,i){
+            tBody.innerHTML+="<tr> <td> " + persons[i].name + "</td> <td> " + persons[i].age + "</td><td> " + persons[i].contact + "</td><td> " + persons[i].marks + "</td></tr>";
+        })
+
+</script>
+</html>
