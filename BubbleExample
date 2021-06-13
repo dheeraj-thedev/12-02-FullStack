@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        div{
+            display: inline-block;
+            padding: 10px;
+            background: #fff;
+            border:  1px solid #aaa;
+            cursor: pointer;
+        }
+
+        div:hover{
+            border: 1px solid #faa;
+            background: #fdd;
+        }
+    </style>
+</head>
+<body>
+    <div>1
+        <div>2
+            <div>3
+                <div>4
+                    <div>5</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button id="clear">Clean Output</button>
+
+    <section id="output"></section>
+
+    <script>
+        var outputElement = document.getElementById('output');
+
+        function clear(){
+            outputElement.innerHTML='';
+        }
+
+        function createOutput(msg){
+            outputElement.innerHTML+=(`<p>${msg}</p>`)
+        }
+
+        function bubble(){
+            createOutput('Bubble : '+ this.firstChild.nodeValue.trim())
+        }
+
+        function capture(){
+            createOutput('Capture : '+ this.firstChild.nodeValue.trim())
+        }
+
+       var divs= document.getElementsByTagName('div');
+
+       for (let index = 0; index < divs.length; index++) {
+           divs[index].addEventListener('click',capture,true);
+           divs[index].addEventListener('click',bubble,false);
+       }
+
+    </script>
+</body>
+</html>
